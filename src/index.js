@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import AddSubscriber from './AddSubscriber';
 import reportWebVitals from './reportWebVitals';
+import './common/common.css'
 
 ReactDOM.render(
   <React.StrictMode>

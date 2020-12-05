@@ -1,14 +1,23 @@
 import React , {Component} from 'react';
 import './Header.css';
 
-const Header = function(){
+// const Header = function(props){
 
-    return (
-     <div className="header">
-        Phone Directory
+//     return (
+//      <div className="header">
+//         {props.heading}
+//      </div>
+//     )
+// }
+
+class Header extends Component{
+    render(){
+return <div className="header">
+        {this.props.heading}
      </div>
-    )
+    }
 }
 
+<Header name="Heading" tagline="Creating Headers Dyamically"/>
 
 export default Header;
