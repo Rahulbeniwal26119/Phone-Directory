@@ -2,6 +2,7 @@ import Header from './Header'
 import './ShowSubscriber.css';
 import React, {Component} from 'react';
 import './common/common.css';
+import {Link} from 'react-router-dom';
 
 class ShowSubscriber extends Component {
 
@@ -9,12 +10,11 @@ class ShowSubscriber extends Component {
         function deleteHandler(message) {
             alert(message);
         }
-        console.log("REnder was called");
 
         return (<div className="component-container">
             <Header heading="Phone Directory" creator="Rahul Beniwal"/>
             <div className="component-body-container">
-                <button className="custom-btn add-btn">Add</button>
+                <Link to="/addSubscriber"><button className="custom-btn add-btn">Add</button></Link>
 
                 <div className="grid-container heading-container">
                     <span className="grid-item name-heading">Name</span>
