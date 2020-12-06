@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import reportWebVitals from './reportWebVitals';
 import './common/common.css';
 import PhoneDirectory from './PhoneDirectory';
 
-ReactDOM.render (<React.StrictMode>
-    <PhoneDirectory/>
+
+
+ReactDOM.render (
+<React.StrictMode>
+<PhoneDirectory/>
 </React.StrictMode>, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
