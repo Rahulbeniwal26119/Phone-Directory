@@ -1,59 +1,50 @@
-import React, {Component} from 'react';
-import AddSubscriber from './AddSubscriber';
-import ShowSubscriber from './ShowSubscriber';
-import {BrowserRouter as Router , Route} from 'react-router-dom'
+import React , {Component} from 'react';
+import ShowUser from './ShowUser';
+import AddUser from './AddUser';
+import {BrowserRouter as Router , Route} from 'react-router-dom';
+import SUBSCRIBERLIST from './record';
 
-class PhoneDirectory extends Component {
+class PhoneDirectory extends Component{
+
     constructor()
     {
         super();
-        this.state= {
-            subscribersList : [{
-                id : 1, 
-                name : "Rahul Beniwal", 
-                phone : "95558490549"
-            }, 
-            {
-                id : 2, 
-                name  : "Kuldeep",
-                phone : "85715477"
-            }
-        ]
+        this.state = {
+            record : SUBSCRIBERLIST
         }
     }
-
-    deleteSubscriberHandler = (subscriberId)=>{
-        let subscribersList = this.state.subscribersList;
-        let subscriberIndex = 0;
-        subscribersList.forEach(function(subscriber , index ){
-            if(subscriber.id == subscriberId){
+    deleteHandler = (id)=>
+    {
+        let tempRecord = this.state.record;
+        let subscriberIndex= 0;
+        tempRecord.forEach((subscriber , index )=>{
+            if(subscriber.id === id)
+            {
                 subscriberIndex = index;
             }
-        } , this);
-        let newSubscribers = subscribersList;
-        newSubscribers.splice(subscriberIndex , 1);
-        this.setState({subscribers : newSubscribers});
+        });
+        tempRecord.splice(subscriberIndex , 1);
+        this.setState({record : tempRecord})
     }
-    addSubscriberHandler = (newSubscriber)=>{
-        let subscribersList = this.state.subscribersList;
-        if(subscribersList.length > 0)
+    addSubscriberHandler  = (newSubscriber)=>{
+        let userList  = this.state.record; 
+        if(userList.length  > 0)
         {
-            newSubscriber.id = subscribersList[subscribersList.length - 1].id + 1;
+            newSubscriber.id = userList[userList.length -1 ].id + 1;
         }
         else 
         {
-            newSubscriber.id = 1;
+            newSubscriber.id =1;
         }
-        subscribersList.push(newSubscriber);
-        this.setState({subscribersList : subscribersList});
+        userList.push(newSubscriber);
+        this.setState({record : userList});
     }
-    render() {
+    render()
+    {
         return (
-            // <ShowSubscriber addSubscriberHandler={this.addSubscriberHandler}/>
-            // <ShowSubscriber subscribersList={this.state.subscribersList}/>
             <Router>
-                <Route exact path="/" render={(props)=> <ShowSubscriber {...props} subscribersList={this.state.subscribersList} deleteSubscriberhandler={this.deleteSubscriberHandler} />}/>
-                <Route exact path="/addSubscriber" render={( {history} , props)=> <AddSubscriber history={history} {...props} addSubscriberHandler={this.addSubscriberHandler}/>}/>
+            <Route exact path="/" render={()=> <ShowUser record={this.state.record} onDeleteHandler={this.deleteHandler}/> }/>
+            <Route exact path="/adduser" render={({history})=> <AddUser history={history} addSubscriberHandler={this.addSubscriberHandler}/>} />
             </Router>
         )
     }

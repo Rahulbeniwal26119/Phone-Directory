@@ -1,23 +1,29 @@
+import {Navbar , NavbarBrand , Button} from 'reactstrap';
+import {Link} from 'react-router-dom';
 import React , {Component} from 'react';
-import './Header.css';
+import './header.css';
 
-// const Header = function(props){
-
-//     return (
-//      <div className="header">
-//         {props.heading}
-//      </div>
-//     )
-// }
-
-class Header extends Component{
-    render(){
-return <div className="header">
-        {this.props.heading}
-     </div>
+class Header extends Component {
+    constructor()
+    {
+        super();
+    }
+    render()
+    {
+        return (
+            <div>
+                <Navbar dark color="primary">
+                    <div className="col-12" style={{textAlign : 'center'}}>
+                    <NavbarBrand>
+                    {this.props.heading}
+                    </NavbarBrand>
+                    </div>
+                    <Link to="/adduser">
+                <Button className={ this.props.heading === "Phone Directory" ? "d-flex addButton btn-success" : "d-none  addButton btn-success"}>Add Subscriber </Button>
+                </Link>
+                </Navbar>
+            </div>
+        )
     }
 }
-
-<Header name="Heading" tagline="Creating Headers Dyamically"/>
-
 export default Header;
