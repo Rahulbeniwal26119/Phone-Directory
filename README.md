@@ -1,12 +1,5 @@
-# Use npm install to install all dependancy and dev-dependencies use in project 
+# Browser Routing Redux 
 
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm  start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
+<img src="https://github.com/Rahulbeniwal26119/Phone-Directory/blob/master/public/phonebook1.png" width="1200px" align="center"/>
+<img src="https://github.com/Rahulbeniwal26119/Phone-Directory/blob/master/public/phonebook2.png" width="1200px" align="center"/>
+<img src="https://github.com/Rahulbeniwal26119/Phone-Directory/blob/master/public/phonebook3.png" width="1200px" align="center"/>
